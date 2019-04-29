@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639895519}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d01661f425ef80438efc64c9f547018, type: 3}
   m_Name: 
@@ -1329,9 +1329,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 639895512}
+  - component: {fileID: 639895522}
   - component: {fileID: 639895513}
-  - component: {fileID: 729272494}
   - component: {fileID: 639895520}
+  - component: {fileID: 639895521}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1348,10 +1349,43 @@ SphereCollider:
   m_GameObject: {fileID: 639895519}
   m_Material: {fileID: 13400000, guid: a3f468e9191df36448c26d4a8f2620bc, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!143 &639895521
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639895519}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 0.8
+  m_Radius: 0.8
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &639895522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639895519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684116c1149c59242b877ea2df4b29ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSwimSpeed: 0
+  acellerationSpeed: 0
+  rotateSensitivity: 0
 --- !u!1001 &696389204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1425,22 +1459,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c2940a605ac944a4b93f06b9c837a999, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ca97a3bbe080a549ab07236dc1e0aaf, type: 3}
---- !u!54 &729272494
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639895519}
-  serializedVersion: 2
-  m_Mass: 0.5
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 2
-  m_Constraints: 64
-  m_CollisionDetection: 0
 --- !u!1 &731924898
 GameObject:
   m_ObjectHideFlags: 0
