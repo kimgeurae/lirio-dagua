@@ -24,6 +24,7 @@ public class NewPlayerMovement : MonoBehaviour
 
     private CharacterController cc;
     private Animator anim;
+    bool isMoving;
 
     private void LoadReferencesAndSetParameters()
     {
@@ -52,23 +53,28 @@ public class NewPlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            // Parei aqqq
+            if (swimSpeed < maxSwimSpeed)
+            {
+                swimSpeed += (acellerationSpeed * Time.deltaTime);
+                swimSpeed *= 1.02f;
+            }
+            else
+            {
+                if (swimSpeed > 0.5f)
+                {
+                    swimSpeed *= 0.98f;
+                }
+                else
+                {
+                    swimSpeed = 0;
+                }
+            }
         }
-        else
-        {
-
-        }
+        cc.Move(transform.position + transform.forward * swimSpeed * Time.deltaTime);
     }
 
-    private void Update(bool isMoving)
+    private void Update()
     {
-        if (isMoving)
-        {
-            swimSpeed = swimSpeed < maxSwimSpeed ? swimSpeed = (swimSpeed + acellerationSpeed * Time.deltaTime) * 1.02f : swimSpeed;
-        }
-        else
-        {
-            swimSpeed = swimSpeed > 0.05f ? swimSpeed *= 0.98f : swimSpeed = 0f;
-        }
+        PlayerMovementInput();
     }
 }

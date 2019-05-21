@@ -135,6 +135,7 @@ public class PlayerMovement : MonoBehaviour
             //print(spdV);
         }
         rb.MovePosition(transform.position + transform.forward * spdV * Time.deltaTime);
+        //rb.velocity = transform.position + transform.forward * spdV * Time.deltaTime;
         //transform.Translate(0f, 0f, 1 * spdV * Time.deltaTime);
     }
 

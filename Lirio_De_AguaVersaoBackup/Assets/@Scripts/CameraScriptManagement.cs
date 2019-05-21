@@ -27,11 +27,11 @@ public class CameraScriptManagement : MonoBehaviour
     {
         if (transform.position.y < 0.1f)
         {
-            //fogFX.enabled = true;
+            fogFX.enabled = true;
             underwaterFX.enabled = true;
         }
         else {
-            //fogFX.enabled = false;
+            fogFX.enabled = false;
             underwaterFX.enabled = false;
         }
     }
