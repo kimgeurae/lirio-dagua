@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         Floating,
     }
     private State state;
+    public bool isDoingPuzzle = false;
 
     // Terminar de arrumar as funções por estado e fazer o SwimFast (mecanica)
 
@@ -55,23 +56,26 @@ public class PlayerMovement : MonoBehaviour
     {
         //StateHandler();
         AnimationUpdate();
-        switch (state)
+        if (!isDoingPuzzle)
         {
-            case State.SwimOpen:
-                Movement();
-                PitchRotation();
-                YawRotation();
-                ApplyRotation();
-                break;
-            case State.SwimClosed:
-                break;
-            case State.Floating:
-                YawRotation();
-                PitchRotation();
-                ApplyRotation();
-                Movement();
-                Float();
-                break;
+            switch (state)
+            {
+                case State.SwimOpen:
+                    Movement();
+                    PitchRotation();
+                    YawRotation();
+                    ApplyRotation();
+                    break;
+                case State.SwimClosed:
+                    break;
+                case State.Floating:
+                    YawRotation();
+                    PitchRotation();
+                    ApplyRotation();
+                    Movement();
+                    Float();
+                    break;
+            }
         }
         /*
         Debug.Log("LeftAnalogY = " + Input.GetAxis("LeftAnalogY"));
@@ -134,7 +138,12 @@ public class PlayerMovement : MonoBehaviour
             }
             //print(spdV);
         }
-        rb.MovePosition(transform.position + transform.forward * spdV * Time.deltaTime);
+        if (spdV != 0)
+            rb.MovePosition(transform.position + transform.forward * spdV * Time.deltaTime);
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
         //rb.velocity = transform.position + transform.forward * spdV * Time.deltaTime;
         //transform.Translate(0f, 0f, 1 * spdV * Time.deltaTime);
     }

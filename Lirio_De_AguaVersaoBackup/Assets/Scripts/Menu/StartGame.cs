@@ -33,8 +33,9 @@ public class StartGame : MonoBehaviour
         }
         else if (Input.anyKey)
         {
-            c.gameObject.SetActive(true);
+            c.gameObject.SetActive(false);
             a = true;
+            SceneManager.LoadScene(1);
         }
     }
 }
